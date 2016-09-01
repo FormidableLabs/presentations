@@ -70,11 +70,6 @@ export default class Presentation extends React.Component {
             </Text>
           </Slide>
           <Slide bgColor="tertiary">
-            <Link href="https://www.formidable.com">
-              <Image width="100%" src={images.logo}/>
-            </Link>
-          </Slide>
-          <Slide bgColor="tertiary">
             <Heading size={1}>
               Thank you
             </Heading>
@@ -84,6 +79,11 @@ export default class Presentation extends React.Component {
             <Text>
               <Link href="https://www.teksystems.com/en"><strong>TEK Systems</strong></Link> has generously volunteered to provide sustenance!
             </Text>
+          </Slide>
+          <Slide bgColor="tertiary">
+            <Link href="https://www.formidable.com">
+              <Image width="100%" src={images.logo}/>
+            </Link>
           </Slide>
           <Slide bgColor="tertiary">
             <Heading size={1} textColor="primary">
