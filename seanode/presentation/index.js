@@ -52,15 +52,15 @@ export default class Presentation extends React.Component {
               Node.js
             </Heading>
             <Text textColor="secondary" textAlign="right">
-              31 August 2016
+              28 September 2016
             </Text>
             <Text bold>
-              Developing with Node.js, NoSQL, and Angular 2
+              Azure IoT Using Node.js
             </Text>
             <Text>
-              Nic Raboy (
-              <Link href="https://github.com/nraboy">
-                @nraboy
+              Jeremy Foster - Developer Evangelist Microsoft (
+              <Link href="https://github.com/codefoster">
+                @codefoster
               </Link>)
             </Text>
             <Text textAlign="center" margin="2em auto 0">
@@ -74,10 +74,8 @@ export default class Presentation extends React.Component {
               Thank you
             </Heading>
             <Text>
-              <Link href="https://generalassemb.ly/seattle"><strong>General Assembly</strong></Link> has graciously agreed to host the event.
-            </Text>
-            <Text>
-              <Link href="https://www.teksystems.com/en"><strong>TEK Systems</strong></Link> has generously volunteered to provide sustenance!
+              <Link href="https://generalassemb.ly/seattle"><strong>CDK Global </strong></Link>
+                has graciously agreed to host the event <br /> and provide sustenance!
             </Text>
           </Slide>
           <Slide bgColor="tertiary">
