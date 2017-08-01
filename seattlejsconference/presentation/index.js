@@ -3,23 +3,14 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
-  // Appear,
-  // BlockQuote,
-  // Cite,
-  // CodePane,
+  BlockQuote,
+  Cite,
   Deck,
-  // Fill,
-  // Fit,
   Heading,
-  Image,
-  // Layout,
-  Link,
   ListItem,
   List,
-  // Markdown,
-  // Quote,
+  Quote,
   Slide,
-  Spectacle,
   Text
 } from "spectacle";
 
@@ -27,6 +18,7 @@ import {
 import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
+// import createTheme from "spectacle/lib/themes/default";
 import theme from "../themes/seattlejs/index.js";
 
 // Require CSS
@@ -38,8 +30,8 @@ require("../fonts/worksans.css");
 require("../fonts/biorhyme.css");
 require("../fonts/silkscreen.css");
 
+
 const images = {
-  logo: require("../assets/logo-seattlejsconference.svg"),
   logoFormidable: require("../assets/logo-formidable.svg")
 };
 
@@ -48,52 +40,40 @@ preloader(images);
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Spectacle theme={theme}>
-        <Deck transition={["slide"]} transitionDuration={500} progress="number">
-          <Slide>
-            <Image width="100%" src={images.logo}/>
-            <Text textAlign="center" textFont="monospace">
-              10-11 August 2017
-            </Text>
-            <Text textAlign="center" margin="2em auto 0">
-              <Link href="https://twitter.com/seattlejs">
-                Follow us <strong>@SeattleJS</strong>
-              </Link>
-            </Text>
-            <Text textAlign="center">
-              <Link href="https://twitter.com/hashtag/SeattleJSConf?src=hash">
-                #SeattleJSConf
-              </Link>
-            </Text>
-          </Slide>
-          <Slide>
-            <Heading size={1}>
-              Thank you
-            </Heading>
-            <Text>
-              <Link href="https://generalassemb.ly/seattle"><strong>General Assembly</strong></Link> has graciously agreed to host the event.
-            </Text>
-            <Text>
-              <Link href="https://www.teksystems.com/en"><strong>TEK Systems</strong></Link> has generously volunteered to provide sustenance!
-            </Text>
-          </Slide>
-          <Slide>
-            <Link href="https://www.formidable.com">
-              <Image width="100%" src={images.logoFormidable}/>
-            </Link>
-          </Slide>
-          <Slide>
-            <Heading size={1} textColor="primary">
-              Get Involved
-            </Heading>
-            <List>
-              <ListItem>Speakers</ListItem>
-              <ListItem>Spaces</ListItem>
-              <ListItem>Sponsors</ListItem>
-            </List>
-          </Slide>
-        </Deck>
-      </Spectacle>
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} progress="number">
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
+            Spectacle Boilerplate
+          </Heading>
+          <Text textColor="tertiary" size={1} fit bold>
+            open the presentation/index.js file to get started
+          </Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Typography</Heading>
+          <Heading size={1} textColor="secondary">Heading 1</Heading>
+          <Heading size={2} textColor="secondary">Heading 2</Heading>
+          <Heading size={3} textColor="secondary">Heading 3</Heading>
+          <Heading size={4} textColor="secondary">Heading 4</Heading>
+          <Heading size={5} textColor="secondary">Heading 5</Heading>
+          <Text size={6} textColor="secondary">Standard text</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
+          <Heading size={6} textColor="secondary" caps>Standard List</Heading>
+          <List>
+            <ListItem>Item 1</ListItem>
+            <ListItem>Item 2</ListItem>
+            <ListItem>Item 3</ListItem>
+            <ListItem>Item 4</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <BlockQuote>
+            <Quote>Example Quote</Quote>
+            <Cite>Author</Cite>
+          </BlockQuote>
+        </Slide>
+      </Deck>
     );
   }
 }

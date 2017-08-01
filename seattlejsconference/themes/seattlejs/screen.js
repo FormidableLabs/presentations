@@ -31,7 +31,8 @@ const colors = {
   primary: brand.navy,
   secondary: brand.blue,
   tertiary: brand.green,
-  quartenary: brand.teal
+  quartenary: brand.teal,
+  white: brand.white
 };
 
 const fonts = {
@@ -43,13 +44,13 @@ const fonts = {
 // background: `linear-gradient(to bottom, ${brand.blue}, ${brand.teal}, ${brand.green}, ${brand.yellow})`,
 
 // background: `linear-gradient(to bottom, #1a58cc 0%,#00bfa2 33%,#28cc7d 77%,#87e231 100%)`,
+// background: `linear-gradient(to bottom, #1a58cc, #00bfa2, #28cc7d, #87e231) url('./asset_skyline.svg') bottom center no-repeat`,
 
 export default {
   colors: colors,
   fonts: fonts,
   global: {
     body: {
-      background: `linear-gradient(to bottom, #1a58cc, #00bfa2, #28cc7d, #87e231)`,
       fontFamily: fonts.body,
       fontWeight: "normal",
       fontSize: "2em",

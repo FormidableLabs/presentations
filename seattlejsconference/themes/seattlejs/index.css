@@ -10,6 +10,10 @@ html, body {
   width: 100%;
 }
 
+body {
+  background: svg-load('../../assets/asset_skyline.svg') bottom center no-repeat;
+}
+
 .spectacle-slide {
   border: 1rem solid #00002c;
   -webkit-transform-origin: center center;
