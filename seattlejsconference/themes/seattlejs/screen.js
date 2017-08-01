@@ -38,7 +38,8 @@ const colors = {
 const fonts = {
   heading: "'BioRhyme', serif",
   body: "'Work Sans', sans-serif",
-  monospace: "'Silkscreen', 'Inconsolata', Consolas, 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', Monaco, Courier, monospace"
+  monospace:
+    "Silkscreen', 'Inconsolata', Consolas, 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', Monaco, Courier, monospace"
 };
 
 // background: `linear-gradient(to bottom, ${brand.blue}, ${brand.teal}, ${brand.green}, ${brand.yellow})`,
@@ -197,7 +198,7 @@ export default {
     },
     content: {
       margin: "0 auto",
-      textAlign: "left"
+      textAlign: "center"
     },
     codePane: {
       pre: {
@@ -231,7 +232,7 @@ export default {
         fontFamily: fonts.heading,
         fontWeight: 300,
         lineHeight: 1,
-        textAlign: "left",
+        margin: 0,
         zoom: 1
       },
       h2: {
@@ -302,7 +303,6 @@ export default {
       color: colors.primary,
       fontSize: "2rem",
       fontFamily: fonts.body,
-      lineHeight: 1.3,
       margin: "1.25rem auto"
     }
   }
