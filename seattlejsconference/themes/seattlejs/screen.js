@@ -52,6 +52,7 @@ export default {
   fonts: fonts,
   global: {
     body: {
+      background: "linear-gradient(to bottom, #1a58cc, #00bfa2, #28cc7d, #87e231)",
       fontFamily: fonts.body,
       fontWeight: "normal",
       fontSize: "2em",
@@ -198,7 +199,7 @@ export default {
     },
     content: {
       margin: "0 auto",
-      textAlign: "center"
+      textAlign: "center" // important for fit prop to work
     },
     codePane: {
       pre: {
