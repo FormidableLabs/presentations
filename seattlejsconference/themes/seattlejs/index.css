@@ -37,14 +37,14 @@ _:-moz-tree-row(hover), ul .appear {
 }
 
 a, a:link {
-  color: #002f89 !important;
-  fill: #002f89 !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
   transition: color 250ms ease-in, fill 250ms ease-in;
 }
 
 a:hover, a:focus {
-  color: rgba(36, 33, 33, 0.5) !important;
-  fill: rgba(36, 33, 33, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  fill: rgba(255, 255, 255, 0.5) !important;
   transition: color 400ms ease-out, fill 400ms ease-out;
 }
 

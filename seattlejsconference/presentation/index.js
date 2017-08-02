@@ -58,18 +58,6 @@ const images = {
 preloader(images);
 
 export default class Presentation extends React.Component {
-  genTwitterFeed(d, s, id) {
-    let js,
-      fjs = d.getElementsByTagName(s)[0],
-      p = /^http:/.test(d.location) ? "http" : "https";
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id = id;
-      js.src = `${p}://platform.twitter.com/widgets.js`;
-      fjs.parentNode.insertBefore(js, fjs);
-    }
-  }
-
   renderSponsorHeading(text) {
     return (
       <Heading
@@ -95,6 +83,42 @@ export default class Presentation extends React.Component {
       marginBottom: "1.5em"
     };
 
+    const wifiSlide = (
+      <Slide style={skylineBg}>
+        <Heading size={3}>WiFi</Heading>
+        <Layout>
+          <Fill>
+            <Text textFont="monospace">Network</Text>
+            <Text>Foundry</Text>
+          </Fill>
+          <Fill>
+            <Text textFont="monospace">Password</Text>
+            <Text>foundry98103</Text>
+          </Fill>
+        </Layout>
+        <Text style={{ marginBottom: 0 }}>
+          <Link href="https://twitter.com/seattlejs">
+            <Image
+              height="1.5em"
+              src={images.logoTwitter}
+              style={{ verticalAlign: "middle" }}
+            />
+            @SeattleJS
+          </Link>
+        </Text>
+        <Text style={{ marginTop: 0, marginBottom: "3em" }}>
+          <Link href="https://twitter.com/hashtag/SeattleJSConf?src=hash">
+            <Image
+              height="1.5em"
+              src={images.logoTwitter}
+              style={{ verticalAlign: "middle" }}
+            />
+            #SeattleJSConf
+          </Link>
+        </Text>
+      </Slide>
+    );
+
     return (
       <Deck
         progress="none"
@@ -108,31 +132,7 @@ export default class Presentation extends React.Component {
             10-11 August 2017
           </Text>
         </Slide>
-        <Slide style={skylineBg}>
-          <Layout>
-            <Fill>
-              <a
-                className="twitter-timeline"
-                data-dnt="true"
-                data-height="900"
-                data-chrome="noheader nofooter"
-                href="https://twitter.com/hashtag/SeattleJSConf"
-                data-widget-id="892785137179668481"
-                style={{ textDecoration: "none" }}
-              >
-                <Text>
-                  <Image
-                    width="2em"
-                    src={images.logoTwitter}
-                    style={{ verticalAlign: "middle" }}
-                  />
-                  #SeattleJSConf
-                </Text>
-              </a>
-              {this.genTwitterFeed(document, "script", "twitter-wjs")}
-            </Fill>
-          </Layout>
-        </Slide>
+        {wifiSlide}
         <Slide bgColor="white">
           {this.renderSponsorHeading("Presenting Sponsor")}
           <Image width="90%" src={images.logoFormidable} />
@@ -149,19 +149,7 @@ export default class Presentation extends React.Component {
           {this.renderSponsorHeading("Gold Sponsor")}
           <Image width="50%" src={images.logoImdb} />
         </Slide>
-        <Slide style={skylineBg}>
-          <Heading size={3}>WiFi</Heading>
-          <Layout style={{ marginBottom: "2em" }}>
-            <Fill>
-              <Text textFont="monospace">Network</Text>
-              <Text>Fremont Foundry</Text>
-            </Fill>
-            <Fill>
-              <Text textFont="monospace">Password</Text>
-              <Text>foundry98103</Text>
-            </Fill>
-          </Layout>
-        </Slide>
+        {wifiSlide}
         <Slide bgColor="white">
           {this.renderSponsorHeading("Silver Sponsors")}
           <Layout>
@@ -200,19 +188,7 @@ export default class Presentation extends React.Component {
             </Fill>
           </Layout>
         </Slide>
-        <Slide style={skylineBg}>
-          <Heading size={3}>WiFi</Heading>
-          <Layout style={{ marginBottom: "2em" }}>
-            <Fill>
-              <Text textFont="monospace">Network</Text>
-              <Text>Fremont Foundry</Text>
-            </Fill>
-            <Fill>
-              <Text textFont="monospace">Password</Text>
-              <Text>foundry98103</Text>
-            </Fill>
-          </Layout>
-        </Slide>
+        {wifiSlide}
       </Deck>
     );
   }
