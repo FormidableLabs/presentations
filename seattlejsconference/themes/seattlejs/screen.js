@@ -39,20 +39,16 @@ const fonts = {
   heading: "'BioRhyme', serif",
   body: "'Work Sans', sans-serif",
   monospace:
-    "Silkscreen', 'Inconsolata', Consolas, 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', Monaco, Courier, monospace"
+    "'Silkscreen', 'Inconsolata', Consolas, 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', Monaco, Courier, monospace"
 };
-
-// background: `linear-gradient(to bottom, ${brand.blue}, ${brand.teal}, ${brand.green}, ${brand.yellow})`,
-
-// background: `linear-gradient(to bottom, #1a58cc 0%,#00bfa2 33%,#28cc7d 77%,#87e231 100%)`,
-// background: `linear-gradient(to bottom, #1a58cc, #00bfa2, #28cc7d, #87e231) url('./asset_skyline.svg') bottom center no-repeat`,
 
 export default {
   colors: colors,
   fonts: fonts,
   global: {
     body: {
-      background: "linear-gradient(to bottom, #1a58cc, #00bfa2, #28cc7d, #87e231)",
+      backgroundImage:
+        "linear-gradient(to bottom, #1a58cc, #00bfa2, #28cc7d, #87e231)",
       fontFamily: fonts.body,
       fontWeight: "normal",
       fontSize: "2em",
@@ -164,7 +160,7 @@ export default {
     number: {
       container: {
         position: "absolute",
-        bottom: 20,
+        top: 20,
         right: 30,
         zIndex: 1000,
         color: colors.primary,
@@ -246,28 +242,28 @@ export default {
       h3: {
         fontSize: "4.9rem",
         fontFamily: fonts.heading,
-        fontWeight: 600,
+        fontWeight: 300,
         lineHeight: 1.2,
         margin: "0.25rem auto"
       },
       h4: {
         fontSize: "3.82rem",
         fontFamily: fonts.heading,
-        fontWeight: 600,
+        fontWeight: 300,
         lineHeight: 1.2,
         margin: "0.25rem auto"
       },
       h5: {
         fontSize: "3.19rem",
         fontFamily: fonts.heading,
-        fontWeight: 600,
+        fontWeight: 300,
         lineHeight: 1.3,
         margin: "0.25rem auto"
       },
       h6: {
         fontSize: "2.66rem",
         fontFamily: fonts.heading,
-        fontWeight: 600,
+        fontWeight: 300,
         lineHeight: 1.3,
         margin: "0.25rem auto"
       }
