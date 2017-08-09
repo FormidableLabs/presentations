@@ -150,21 +150,13 @@ const customTheme = {
       }
     },
     image: {
-      margin: null,
-      marginTop: "0.5rem",
-      marginRight: "auto", 
-      marginBottom: "0.5rem",
-      marginLeft: "auto"
+      margin: "0.5rem auto"
     },
     text: {
       color: colors.primary,
       fontSize: "2rem",
       fontFamily: fonts.body,
-      margin: null,
-      marginTop: "1.25rem",
-      marginRight: "auto", 
-      marginBottom: "1.25rem",
-      marginLeft: "auto"
+      margin: "1.25rem auto"
     }
   }
 };

@@ -81,7 +81,7 @@ export default class Presentation extends React.Component {
 
     const sponsor = {
       display: "block",
-      marginBottom: "1.5em"
+      margin: "0.5rem auto 1.5em"
     };
 
     const wifiSlide = (
@@ -97,7 +97,7 @@ export default class Presentation extends React.Component {
             <Text>foundry98103</Text>
           </Fill>
         </Layout>
-        <Text style={{ marginBottom: 0 }}>
+        <Text style={{ margin: "1.25rem auto 0" }}>
           <Link href="https://twitter.com/seattlejs">
             <Image
               height="1.5em"
@@ -107,7 +107,7 @@ export default class Presentation extends React.Component {
             @SeattleJS
           </Link>
         </Text>
-        <Text style={{ marginTop: 0, marginBottom: "3em" }}>
+        <Text style={{ margin: "0 auto 3em" }}>
           <Link href="https://twitter.com/hashtag/SeattleJSConf?src=hash">
             <Image
               height="1.5em"
