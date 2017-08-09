@@ -52,7 +52,8 @@ const images = {
   logoOpenDoor: require("../assets/logo-opendoor.svg"),
   logoSheCodesNow: require("../assets/logo-shecodesnow.png"),
   logoSendGrid: require("../assets/logo-sendgrid.svg"),
-  logoTwitter: require("../assets/logo-twitter.svg")
+  logoTwitter: require("../assets/logo-twitter.svg"),
+  logoUnbounce: require("../assets/logo-unbounce.png")
 };
 
 preloader(images);
@@ -186,6 +187,13 @@ export default class Presentation extends React.Component {
             <Fill>
               <Image style={sponsor} width="60%" src={images.logoSheCodesNow} />
             </Fill>
+          </Layout>
+          <Layout>
+            <Fill />
+            <Fill>
+              <Image style={sponsor} width="80%" src={images.logoUnbounce} />
+            </Fill>
+            <Fill />
           </Layout>
         </Slide>
         {wifiSlide}
