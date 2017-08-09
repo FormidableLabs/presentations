@@ -68,8 +68,7 @@ export default {
       outline: 0
     },
     prevIcon: {
-      fill: colors.secondary,
-      opacity: 0.5
+      fill: colors.primary
     },
     next: {
       position: "absolute",
@@ -82,8 +81,7 @@ export default {
       outline: 0
     },
     nextIcon: {
-      fill: colors.secondary,
-      opacity: 0.5
+      fill: colors.primary
     }
   },
   progress: {
