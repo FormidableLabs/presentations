@@ -77,6 +77,17 @@ const customTheme = {
       color: colors.primary
     }
   },
+  fullscreen: {
+    fill: colors.white
+  },
+  autoplay: {
+    pauseIcon: {
+      fill: colors.white
+    },
+    playIcon: {
+      fill: colors.white
+    }
+  },
   controls: {
     prevIcon: {
       fill: colors.primary
