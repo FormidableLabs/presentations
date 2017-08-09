@@ -64,7 +64,7 @@ export default class Presentation extends React.Component {
       <Heading
         caps
         size={6}
-        style={{ marginBottom: "1.5em", letterSpacing: "0.05em" }}
+        style={{ letterSpacing: "0.05em" }}
       >
         {text}
       </Heading>
@@ -122,6 +122,7 @@ export default class Presentation extends React.Component {
 
     return (
       <Deck
+        autoplay
         progress="none"
         theme={theme}
         transition={["fade"]}

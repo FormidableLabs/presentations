@@ -1,25 +1,10 @@
 /*eslint-disable object-shorthand*/
 
 const brand = {
-  // black and its tints:
-  black: "#242121", // black
-  darkerGray: "#373534",
-  darkGray: "#5f5c5b",
-  gray: "#a19e9d",
-  lightGray: "#e8e8e9",
-  white: "#f1f1f2", // lightest gray
-  // red and its tints:
-  red: "#c43a31", // brand red
-  darkestRed: "#cd5244",
-  darkerRed: "#d56557",
-  darkRed: "#dc7a6b",
-  lightred: "#e58c7d",
-  lighterRed: "#eb9f92",
-  lightestRed: "#efb3a7",
-  paleRed: "#f5c5bc",
-  palerRed: "#f8d9d2",
-  palestRed: "#f6ebe7", // palest red
-  // brand
+  // grayscale
+  darkGray: "#373534",
+  white: "#f1f1f2",
+  // seattlejs style guide 
   navy: "#00002c",
   blue: "#002f89",
   teal: "#008f7b",
@@ -42,127 +27,70 @@ const fonts = {
     "'Silkscreen', 'Inconsolata', Consolas, 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', Monaco, Courier, monospace"
 };
 
-export default {
+// Default Spectacle Theme for Screens
+import screen from "spectacle/lib/themes/default/screen.js";
+const defaultTheme = screen(colors, fonts);
+
+// We're doing it. Let's deep merge the default theme from spectacle 
+// with our custom theme overrides, without losing any default styles. 
+// Source: https://davidwalsh.name/javascript-deep-merge
+const isObjectWithValue = (val) => {
+  return val && typeof val === 'object';
+}
+
+const deepmerge = (target, source) => {
+  return mergeObject(target, source);
+}
+
+const mergeObject = (target, source) => {
+  let dest = {}; 
+
+  if (isObjectWithValue(target)) {
+    Object.keys(target).forEach(key => {
+      dest[key] = target[key];
+    });
+  }
+  
+  Object.keys(source).forEach(key => {
+    if (!isObjectWithValue(source[key]) || !target[key]) {
+      // Source is not an object OR target key does not exist 
+      dest[key] = source[key];
+    } else {
+      // Source is an object and needs to be inspected further
+      dest[key] = deepmerge(target[key], source[key]);
+    } 
+  });
+  
+  return dest;
+}
+
+// Custom Theme
+const customTheme = {
   colors: colors,
   fonts: fonts,
   global: {
     body: {
+      background: null,
       backgroundImage:
         "linear-gradient(to bottom, #1a58cc, #00bfa2, #28cc7d, #87e231)",
       fontFamily: fonts.body,
-      fontWeight: "normal",
-      fontSize: "2em",
-      color: colors.primary,
-      overflow: "hidden"
-    },
-    "html, body": {
-      height: "100%"
-    },
-    "*": {
-      boxSizing: "border-box"
+      color: colors.primary
     }
   },
-  fullscreen: {
-    fill: colors.primary
-  },
   controls: {
-    prev: {
-      position: "absolute",
-      top: "50%",
-      left: 20,
-      transform: "translateY(-50%)",
-      zIndex: 9999,
-      background: "none",
-      border: "none",
-      outline: 0
-    },
     prevIcon: {
       fill: colors.primary
-    },
-    next: {
-      position: "absolute",
-      top: "50%",
-      right: 20,
-      transform: "translateY(-50%)",
-      zIndex: 9999,
-      background: "none",
-      border: "none",
-      outline: 0
     },
     nextIcon: {
       fill: colors.primary
     }
   },
   progress: {
-    pacman: {
-      container: {
-        position: "absolute",
-        bottom: "5px",
-        left: "50%",
-        transition: "all 1s ease-in-out 0.2s",
-        zIndex: 1000
-      },
-      pacman: {
-        position: "absolute",
-        transition: "left 0.3s ease-in-out 0.2s",
-        width: "20px",
-        height: "20px",
-        transform: "translate(-5px, -5px)"
-      },
-      pacmanTop: {
-        position: "absolute",
-        content: "",
-        width: "20px",
-        height: "10px",
-        borderTopLeftRadius: "10px",
-        borderTopRightRadius: "10px",
-        background: colors.quartenary
-      },
-      pacmanBottom: {
-        position: "absolute",
-        content: "",
-        width: "20px",
-        height: "10px",
-        borderBottomLeftRadius: "10px",
-        borderBottomRightRadius: "10px",
-        background: colors.quartenary,
-        top: "10px"
-      },
-      point: {
-        position: "absolute",
-        float: "left",
-        background: "transparent",
-        width: "10px",
-        height: "10px",
-        borderWidth: 2,
-        borderStyle: "solid",
-        borderColor: colors.quartenary,
-        borderRadius: "50%",
-        transition: "all 0.01s ease-out 0.4s"
-      }
-    },
-    bar: {
-      container: {
-        position: "absolute",
-        height: "10px",
-        width: "100%",
-        bottom: 0,
-        left: 0,
-        transition: "all 1s ease-in-out 0.2s",
-        zIndex: 1000
-      },
-      bar: {
-        height: "100%",
-        background: colors.quartenary,
-        transition: "all 0.3s ease-out"
-      }
-    },
     number: {
       container: {
         position: "absolute",
         top: 20,
         right: 30,
-        zIndex: 1000,
         color: colors.primary,
         fontFamily: fonts.monospace,
         letterSpacing: "-0.275em",
@@ -171,136 +99,74 @@ export default {
     }
   },
   components: {
-    blockquote: {
-      textAlign: "left",
-      position: "relative",
-      display: "inline-block",
-      margin: 20
-    },
     quote: {
-      borderLeft: `1px solid ${colors.primary}`,
-      paddingLeft: 40,
-      display: "block",
-      color: colors.primary,
-      fontSize: "4.9rem",
-      lineHeight: 1,
-      fontWeight: "bold"
-    },
-    cite: {
-      color: colors.tertiary,
-      display: "block",
-      clear: "left",
-      fontSize: "2rem",
-      marginTop: "1rem"
-    },
-    content: {
-      margin: "0 auto",
-      textAlign: "center" // important for fit prop to work
+      borderLeft: `1px solid ${colors.primary}`
     },
     codePane: {
       pre: {
-        margin: "auto",
-        fontSize: "0.8rem",
-        fontWeight: "normal",
-        fontFamily: fonts.monospace,
         height: "100%",
-        minWidth: "100%",
-        maxWidth: 800
       },
       code: {
-        color: brand.darkerGray,
-        textAlign: "left",
-        fontFamily: fonts.monospace,
-        fontWeight: "normal"
+        color: brand.darkGray,
+        fontFamily: fonts.monospace
       }
     },
     code: {
-      color: "black",
-      fontSize: "2.66rem",
-      fontFamily: fonts.monospace,
-      margin: "0.25rem auto",
-      backgroundColor: "rgba(0,0,0,0.15)",
-      padding: "0 10px",
-      borderRadius: 3
+      fontFamily: fonts.monospace
     },
     heading: {
       h1: {
-        fontSize: "7.05rem",
         fontFamily: fonts.heading,
-        fontWeight: 300,
-        lineHeight: 1,
-        margin: 0,
-        zoom: 1
+        fontWeight: 300
       },
       h2: {
-        fontSize: "5.88rem",
         fontFamily: fonts.heading,
         fontWeight: 300,
-        lineHeight: 1.2,
-        margin: 0
+        lineHeight: 1.2
       },
       h3: {
-        fontSize: "4.9rem",
         fontFamily: fonts.heading,
         fontWeight: 300,
         lineHeight: 1.2,
         margin: "0.25rem auto"
       },
       h4: {
-        fontSize: "3.82rem",
         fontFamily: fonts.heading,
         fontWeight: 300,
         lineHeight: 1.2,
         margin: "0.25rem auto"
       },
       h5: {
-        fontSize: "3.19rem",
         fontFamily: fonts.heading,
         fontWeight: 300,
         lineHeight: 1.3,
         margin: "0.25rem auto"
       },
       h6: {
-        fontSize: "2.66rem",
         fontFamily: fonts.heading,
         fontWeight: 300,
         lineHeight: 1.3,
-        margin: "0.25rem auto"
+        margin: "0.25rem auto 1.5em"
       }
     },
     image: {
-      display: "block",
-      margin: "0.5rem auto"
-    },
-    link: {
-      textDecoration: "none"
-    },
-    listItem: {
-      fontSize: "2.66rem"
-    },
-    list: {
-      textAlign: "left",
-      listStylePosition: "inside",
-      padding: 0
-    },
-    s: {
-      strikethrough: {}
-    },
-    tableHeaderItem: {
-      fontSize: "2.66rem",
-      fontWeight: "bold"
-    },
-    tableItem: {
-      fontSize: "2.66rem"
-    },
-    table: {
-      width: "100%"
+      margin: null,
+      marginTop: "0.5rem",
+      marginRight: "auto", 
+      marginBottom: "0.5rem",
+      marginLeft: "auto"
     },
     text: {
       color: colors.primary,
       fontSize: "2rem",
       fontFamily: fonts.body,
-      margin: "1.25rem auto"
+      margin: null,
+      marginTop: "1.25rem",
+      marginRight: "auto", 
+      marginBottom: "1.25rem",
+      marginLeft: "auto"
     }
   }
 };
+
+export default mergeObject(defaultTheme, customTheme);
